@@ -9,6 +9,7 @@ private Paddle p1,p2;
 	 background(100);
 	 p1=new Paddle(20,20,this);
 	 p2=new Paddle (50,50,this);
+	 
  }
  public void draw(){
 	 p1.create();
