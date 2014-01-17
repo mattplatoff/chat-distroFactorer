@@ -43,4 +43,30 @@ public class ValidatedInput {
 
 		return getInt(valid); // TODO: implement method
 	}
+	public boolean password(Validator<String> valid,int attempts){
+		for (int x=attempts;x>0;x--){
+			System.out.println(valid.prompt());
+			String word=scan.nextLine();
+			if (valid.isValid(word)){
+				System.out.println("that is the correct password");
+				return true;}
+			else 
+				System.out.println("that pass word was incorrect you have "+ x+" attempts left");
+		}
+		System.out.println("you are out of attempts");
+		return false;
+		
+	}
+	private void prompt(Validator validator){
+		System.out.println(validator.prompt());
+		String num = scan.nextLine();
+
+		while (!validator.isValid(num)) {
+
+			System.out.println(validator.error());
+			System.out.println(validator.prompt());
+			num = scan.nextLine();
+		}
+	}
+	
 }
