@@ -18,13 +18,14 @@ public class Hanoi {
 			throw new IndexOutOfBoundsException();
 		else {
 			if (disks==1)
-				System.out.println("move disk from "+source+" to "+target);
+				System.out.printf("Move one disk from pole %s to pole %s \n ", source, target);
 			else {
 				
 				 {
 				      move(peg1, peg2, disks-1);
-				      System.out.println(  "move disk from " + target + " to " + source);
+				      System.out.printf("Move one disk from pole %s to pole %s \n ", source, target);
 				      move(peg2, peg3,  disks-1);
+				     
 				     
 				    }
 			}
