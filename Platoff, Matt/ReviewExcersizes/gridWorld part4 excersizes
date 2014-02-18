@@ -1,0 +1,23 @@
+dyk set seven:
+1, the methods called by the act method are getActore(), processActors(), getMoveLocations(), selectMoveLocations(),  makeMove()
+2, they all determine which actors should be processed, they determine how they should be processed, they determine which of the locations are candidates for the movem selection of one of the candadites, and they make the move.
+3, yes, they should override the methods of the act method of critter rather than the actuall act method it self.
+4, a critter could eat all the actors it identifys
+5, getMoveLocation gets all possible locations for the critter to move to., selectMoveLocation selects the location for the critters to move to., makeMove moves the critter on the grid.
+6,the critter class is designed to be a super class of other critter classes.
+dyk set 8:
+1,because in the chameleonCritter class the processActors and makeMove methods are overwritten
+2, because the makeMove method of the super class is used in conjunction with the other changes made in the chamelionCritter class.
+3, you would use methods in the Actor class to drop a flower.
+4, because the way the chamelion gets the acors is the same as that of the critter class, it is only the way that the chamelion processes the actors that differs. 
+5, the critter class contains the getLocation method
+6, a critter can acces its own grid by using super.getGrid
+dyk set 9:
+1, the crab class dosnt override the processActors method because the way it processes actors is the same as its super class.  the only thing that differs is the way it gets the actors. 
+2, The crabCritter uses a modified version of the get actors method where is only searches for the three actors in from on it.  it then proceeds to eat these three actors.
+3, so that he crabCritter can only get hte locations of the the bugs in the specified directions.  
+4, the possible locations are 2,5  3,5  and 4,5
+5, the crab critter eats everything that isnt a rock in its path.  thecritter simply rotates when it hits another object
+6, it turns when it hits a rock .  it determines this using the process actors method. 
+7, because the crabCritters use the instanceOf call to determine if the weather actors in fromt are crabCritters or other types ofactors. 
+dyk set 10:
