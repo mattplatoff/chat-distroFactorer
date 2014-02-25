@@ -3,6 +3,8 @@
 	<classpathentry kind="src" path="chapter_13"/>
 	<classpathentry kind="src" path="chapter11"/>
 	<classpathentry kind="src" path="chapter18"/>
+	<classpathentry kind="src" path="GridWorld"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="H:/GridWorldCode/gridworld.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
