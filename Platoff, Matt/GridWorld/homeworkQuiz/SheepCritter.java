@@ -24,9 +24,7 @@ public void processActors(ArrayList<Actor> a){
 		wolfCount++;
 		if (wolfCount==3)
 			this.removeSelfFromGrid();
-		if (this.getGrid().get(this.getLocation().getAdjacentLocation(this.getDirection()-Location.HALF_CIRCLE)).equals(null)){
-			this.moveTo(this.getLocation().getAdjacentLocation(this.getDirection()-Location.HALF_CIRCLE));
-		}
+		
 		
 		}
 	else {
