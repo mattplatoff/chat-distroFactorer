@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="chapter_13"/>
+	<classpathentry kind="src" path="gridworld"/>
 	<classpathentry kind="src" path="chapter11"/>
 	<classpathentry kind="src" path="chapter18"/>
+	<classpathentry kind="src" path="chapter_19"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="src" path="gridworld"/>
-	<classpathentry kind="lib" path="/Users/matthew/eclipse-and-more/repositories/mrhorn-shared/Horn, Brandon - shared/libraries/gridworld.jar"/>
+	<classpathentry kind="lib" path="libs/gridworld.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
