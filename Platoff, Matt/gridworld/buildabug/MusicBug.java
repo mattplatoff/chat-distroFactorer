@@ -49,7 +49,7 @@ public class MusicBug extends Bug {
 	}
 
 	public void launchVid() {
-		String url = "http://www.1227.com";
+		String url = "http://www.youtube.com/watch?v=dQw4w9WgXcQ&list=AL94UKMTqg-9AA5fs2YLabd8x7fdejYPot";
 		try {
 			java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
 		} catch (IOException e) {
