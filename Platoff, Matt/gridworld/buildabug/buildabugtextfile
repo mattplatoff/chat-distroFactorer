@@ -1,4 +1,5 @@
 My bug drops three flowers as it moves rather than one.  
-When one music bug runs into another bug it launches the default browser on the computer and plays saxophone music.
+When one music bug runs into another bug it launches the default browser on the computer and plays music.
+the bug runs around until it finds another bug. then it eats it.
 I chose to over ride canMove and move because my music bug follows the same basic path as a regular bug, however it can move to diffrent spots than a bug I.E. over other actors.
 i chose to over ride move so the bug could drop three flowers and launch the video that it does.
