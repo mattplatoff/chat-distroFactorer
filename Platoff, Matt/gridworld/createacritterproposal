@@ -1,0 +1,11 @@
+create a critter proposal:
+my critter will be a hanibal critter and will move one space closer to which ever other critter is closest to it with in a five space radius.  
+Then when it catches up to the other critter the hanibal critter will eat it.  
+other actors in the grid will behave as they normally do .
+ hanibal critter will extend critter.
+ hanibal critter will override:
+getActors()
+processActors()
+getMoveLocations()
+selectMoveLocations()
+ 
