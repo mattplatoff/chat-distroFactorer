@@ -5,14 +5,15 @@ import java.util.ArrayList;
 import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
-
+//TODO: figure out if there is a way to make the images of this object change with one class or if i need to make subclasses.
 public class NumberTile {
 	// TODO: make subclasses of number tile so it is easy to change the image of
 	// the tile
 	private Location myLoc;
 	private GameBoard gb;
 	private int value;
-	private BoundedGrid<NumberTile> grid = (BoundedGrid<NumberTile>) gb.getGrid();
+	private BoundedGrid<NumberTile> grid = (BoundedGrid<NumberTile>) gb
+			.getGrid();
 
 	/**
 	 * moves tile in direction of arrow key
@@ -75,31 +76,7 @@ public class NumberTile {
 		}
 	}
 
-	/**
-	 * attempts to place the numbertile in an unoccupied location in the grid
-	 * 
-	 * @return true if tile was placed , false of there are no more unoccupied
-	 *         locations
-	 */
-	public boolean spawnTile() {
-ArrayList<Location> emptyLocs=new ArrayList<Location>();
-for (int r=0;r<4;r++){
-	for (int c=0;c<4;c++){
-		if (grid.get(new Location(r,c))==null)
-			emptyLocs.add(new Location(r,c));
-	}
-}
-	if (emptyLocs.size()==0)	
-return false;
-	else{
-		
-		
-		
-		
-		return true;
-	}
 
-	}
 
 	/**
 	 * checks if location to be placed is valid
