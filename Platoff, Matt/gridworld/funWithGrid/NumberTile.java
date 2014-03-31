@@ -139,5 +139,9 @@ public class NumberTile {
 
 		return loc;
 	}
-
+//TODO: make override getImageSuffix method
+	public boolean getImageSuffix(){
+	return false;
+	
+}
 }
