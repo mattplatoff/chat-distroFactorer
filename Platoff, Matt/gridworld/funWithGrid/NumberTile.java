@@ -140,8 +140,39 @@ public class NumberTile {
 		return loc;
 	}
 //TODO: make override getImageSuffix method
-	public boolean getImageSuffix(){
-	return false;
+	public String getImageSuffix(){
+	if (value==2)
+		return "_2";
+	if (value==4)
+		return "_4";
+	if (value==8)
+		return "_8";
+	if (value==16)
+		return "_16";
+	if (value==32)
+		return "_32";
+	if (value==64)
+		return "_64";
+	if (value==128)
+		return "_128";
+	if (value==256)
+		return "_256";
+	if (value==512)
+		return "_512";
+	if (value==1024)
+		return "_1024";
+	if (value==2048)
+		return "_2048";
+	if (value==4096)
+		return "_4096";
+	
+	
+	
+	
+	}
+		
+		
+		return "";
 	
 }
 }
