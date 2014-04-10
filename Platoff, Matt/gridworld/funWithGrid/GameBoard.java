@@ -27,7 +27,9 @@ public class GameBoard extends World {
 		}
 		System.out.println(description);
         if (!spawnTile())
-        	System.out.println("game over");
+        	for (Location t : (ArrayList<Location>) getGrid().getOccupiedLocations()) {
+    			((NumberTile)bg.get(t)).gameOver();}
+        
 		return true;
 
 	}

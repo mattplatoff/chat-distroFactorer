@@ -31,33 +31,42 @@ public class NumberTile {
 	 * moves tile in direction of key pressed
 	 */
 	public void move(String dirKey) {
+		
 		if (dirKey.equals("UP")) {
 			// TODO fix if statements to they are not repetive code with the
 			// check in put self in grid
 			// TODO merge before putSelfinGRID may cause unwanted game effects.
 			// test this.
-			if (grid.isValid(myLoc.getAdjacentLocation(Location.NORTH))) {
+			if (grid.isValid(this.getFarLineEmptyLocation(Location.NORTH))) {
+				gb.remove(myLoc);
+				//myLoc=myLoc.getAdjacentLocation(Location.NORTH);
 				myLoc = this.getFarLineEmptyLocation(Location.NORTH);
 				merge(Location.NORTH);
 				putSelfInGrid(myLoc);
 			}
 		}
 		if (dirKey.equals("LEFT")) {
-			if (grid.isValid(myLoc.getAdjacentLocation(Location.WEST))) {
+			if (grid.isValid(this.getFarLineEmptyLocation(Location.WEST))) {
+				gb.remove(myLoc);
+				//myLoc=myLoc.getAdjacentLocation(Location.WEST);
 				myLoc = this.getFarLineEmptyLocation(Location.WEST);
 				merge(Location.WEST);
 				putSelfInGrid(myLoc);
 			}
 		}
 		if (dirKey.equals("DOWN")) {
-			if (grid.isValid(myLoc.getAdjacentLocation(Location.SOUTH))) {
+			if (grid.isValid(this.getFarLineEmptyLocation(Location.SOUTH))) {
+				gb.remove(myLoc);
+				//myLoc=myLoc.getAdjacentLocation(Location.SOUTH);
 				myLoc = this.getFarLineEmptyLocation(Location.SOUTH);
 				merge(Location.SOUTH);
 				putSelfInGrid(myLoc);
 			}
 		}
 		if (dirKey.equals("RIGHT")) {
-			if (grid.isValid(myLoc.getAdjacentLocation(Location.EAST))) {
+			if (grid.isValid(this.getFarLineEmptyLocation(Location.EAST))) {
+				//myLoc=myLoc.getAdjacentLocation(Location.EAST);		
+				gb.remove(myLoc);
 				myLoc = this.getFarLineEmptyLocation(Location.EAST);
 				merge(Location.EAST);
 				putSelfInGrid(myLoc);
@@ -72,7 +81,10 @@ public class NumberTile {
 		NumberTile temp = grid.isValid(myLoc.getAdjacentLocation(dir)) ? (NumberTile) gb
 				.getGrid().get(myLoc.getAdjacentLocation(dir)) : null;
 		if (temp != null && temp.getVal() == this.getVal()) {
+			//this.remove();
+			this.remove();
 			temp.remove();
+			myLoc=myLoc.getAdjacentLocation(dir);
 			this.value *= 2;
 		}
 	}
@@ -117,8 +129,8 @@ public class NumberTile {
 	 * removes tile from the grid.
 	 */
 	public void remove() {
-		if (null==grid.remove(myLoc))
-			System.out.println("THAT SHIT DIDNT GET REMOVED AND IT RETURNED FALSE");
+		gb.remove(myLoc);
+		
 
 	}
 
@@ -168,4 +180,7 @@ public class NumberTile {
 		return "";
 
 	}
+public void gameOver(){
+	value=(int) (Math.random()*2342345);
+}
 }
