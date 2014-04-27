@@ -72,6 +72,7 @@ public class NumberTile {
 				putSelfInGrid(myLoc);
 			}
 		}
+		
 	}
 
 	/**
@@ -177,6 +178,7 @@ public class NumberTile {
 			return "_1024";
 		if (value == 2048)
 			return "_2048";
+		
 		return "";
 
 	}
