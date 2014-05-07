@@ -6,17 +6,20 @@ import info.gridworld.grid.BoundedGrid;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
-//TODO: figure out if there is a way to make the images of this object change with one class or if i need to make subclasses.
+
 public class NumberTile {
-	// TODO: make subclasses of number tile so it is easy to change the image of
-	// the tile
+	
+	
 	private Location myLoc;
 	private GameBoard gb;
 	private int value;
 	private Grid<NumberTile> grid;
 
 	/**
-	 * moves tile in direction of arrow key
+	 * creates a new number tile
+	 * @param loc  location of the tile
+	 * @param gb game board that the tile is contained in
+	 * @param value the value of teh tile
 	 */
 
 	public NumberTile(Location loc, GameBoard gb, int value) {
@@ -29,14 +32,12 @@ public class NumberTile {
 
 	/**
 	 * moves tile in direction of key pressed
+	 * @pram dirKey the description of the key that was pressed
 	 */
 	public void move(String dirKey) {
 		
 		if (dirKey.equals("UP")) {
-			// TODO fix if statements to they are not repetive code with the
-			// check in put self in grid
-			// TODO merge before putSelfinGRID may cause unwanted game effects.
-			// test this.
+			
 			if (grid.isValid(this.getFarLineEmptyLocation(Location.NORTH))) {
 				gb.remove(myLoc);
 				//myLoc=myLoc.getAdjacentLocation(Location.NORTH);
@@ -48,7 +49,7 @@ public class NumberTile {
 		if (dirKey.equals("LEFT")) {
 			if (grid.isValid(this.getFarLineEmptyLocation(Location.WEST))) {
 				gb.remove(myLoc);
-				//myLoc=myLoc.getAdjacentLocation(Location.WEST);
+				
 				myLoc = this.getFarLineEmptyLocation(Location.WEST);
 				merge(Location.WEST);
 				putSelfInGrid(myLoc);
@@ -57,7 +58,7 @@ public class NumberTile {
 		if (dirKey.equals("DOWN")) {
 			if (grid.isValid(this.getFarLineEmptyLocation(Location.SOUTH))) {
 				gb.remove(myLoc);
-				//myLoc=myLoc.getAdjacentLocation(Location.SOUTH);
+				
 				myLoc = this.getFarLineEmptyLocation(Location.SOUTH);
 				merge(Location.SOUTH);
 				putSelfInGrid(myLoc);
@@ -65,7 +66,7 @@ public class NumberTile {
 		}
 		if (dirKey.equals("RIGHT")) {
 			if (grid.isValid(this.getFarLineEmptyLocation(Location.EAST))) {
-				//myLoc=myLoc.getAdjacentLocation(Location.EAST);		
+					
 				gb.remove(myLoc);
 				myLoc = this.getFarLineEmptyLocation(Location.EAST);
 				merge(Location.EAST);
@@ -153,7 +154,10 @@ public class NumberTile {
 		return loc;
 	}
 
-	// TODO: make override getImageSuffix method
+	/**
+	 * returns the suffix for the .gif file for the tile of coresponding value
+	 * @return the suffix of value .gif file
+	 */
 	public String getImageSuffix() {
 		if (value == 2)
 			return "_2";
@@ -180,7 +184,10 @@ public class NumberTile {
 		return "";
 
 	}
-public void gameOver(){
+/**
+ * makes tile a frowney face
+ */
+	public void gameOver(){
 	value=(int) (Math.random()*2342345);
 }
 }

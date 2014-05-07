@@ -10,14 +10,18 @@ import info.gridworld.world.World;
 
 public class GameBoard extends World {
  private static BoundedGrid<NumberTile> bg=new BoundedGrid<NumberTile>(4,4);
-	// TODO have keypressed save a direction that is accessable in NumberTile
+	/**
+	 * creates a new game board
+	 */
 	public GameBoard() {
 		super(bg);
 		spawnTile();
 		spawnTile();
 	}
 
-
+/**
+ * moves te tiles on the board in the direction of arrow key pressed
+ */
 	public boolean keyPressed(String description, Location loc) {
 
 		for (Location t : (ArrayList<Location>) getGrid().getOccupiedLocations()) {
