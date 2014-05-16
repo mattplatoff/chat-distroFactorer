@@ -1,5 +1,6 @@
 package blackjack;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +8,15 @@ import blackjack.cardSources.AutoShuffleShoe;
 import blackjack.cardSources.ContinuousShuffler;
 import blackjack.observers.PrintingObserver;
 import blackjack.observers.playerResultTracking.PlayerResultTrackingObserver;
+import blackjack.players.BasicPlayer;
 import blackjack.players.RandomPlayer;
 
 public class Casino
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException
     {
-        final int BETS = 1000000;
+        final int BETS = 60000
+        		;
         
         BlackjackObserver printing = new PrintingObserver();
         PlayerResultTrackingObserver results = new PlayerResultTrackingObserver();
@@ -23,7 +26,8 @@ public class Casino
         observers.add(results);
         
         List<BlackjackPlayer> players = new ArrayList<BlackjackPlayer>();
-        players.add(new RandomPlayer());
+        players.add(new BasicPlayer());
+        
         
         
         CardSource cardSource = new AutoShuffleShoe(6, 0.75);

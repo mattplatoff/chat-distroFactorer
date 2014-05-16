@@ -152,7 +152,7 @@ public class Table
             }
         }
         
-        List<Card> discards = new ArrayList<>();
+        List<Card> discards = new ArrayList<Card>();
         
         for(int seatIndex = 0; seatIndex < this.seats.size(); seatIndex++)
         {
