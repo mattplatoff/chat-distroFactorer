@@ -5,7 +5,11 @@ other actors in the grid will behave as they normally do .
  hanibal critter will extend critter.
  hanibal critter will override:
 getActors()
+will get all actors with in a 5 space radius
 processActors()
+will get the location of the closest actor and save it as an instance feild
+all critters with in one space of this critter.
 getMoveLocations()
-selectMoveLocations()
+will return one space in the direction of the closest critter 
+
  
