@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 /**
  * This class contains class (static) methods
  * that will help you test the Picture class 
@@ -11,12 +13,24 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("blue-mark.jpg");
     beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+    
+   
   }
-  
+  public static void testChromakey(){
+	 
+	  Picture bg=new Picture("beach.jpg");
+	  Picture original = new Picture("blue-mark.jpg");
+	  Pixel[] bgPixals=bg.getPixels();
+	  Pixel[] origPixals=original.getPixels();
+	 Color c=new Color(19,38,80);
+	  for (int k=0;k<origPixals.length;k++){
+		  if (Pixel.colorDistance(c, origPixals[k].getColor())<=15);
+	  origPixals[k]=bgPixals[k];}
+	  Picture fin=new Picture();
+	 
+  }
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
