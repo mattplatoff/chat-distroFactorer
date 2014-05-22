@@ -8,7 +8,7 @@ import blackjack.cardSources.AutoShuffleShoe;
 import blackjack.cardSources.ContinuousShuffler;
 import blackjack.observers.PrintingObserver;
 import blackjack.observers.playerResultTracking.PlayerResultTrackingObserver;
-import blackjack.players.BasicPlayer;
+import blackjack.players.Bs53141;
 import blackjack.players.RandomPlayer;
 
 public class Casino
@@ -26,7 +26,7 @@ public class Casino
         observers.add(results);
         
         List<BlackjackPlayer> players = new ArrayList<BlackjackPlayer>();
-        players.add(new BasicPlayer());
+        players.add(new Bs53141());
         
         
         

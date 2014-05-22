@@ -5,8 +5,10 @@
 	<classpathentry kind="src" path="chapter11"/>
 	<classpathentry kind="src" path="chapter18"/>
 	<classpathentry kind="src" path="chapter_19"/>
+	<classpathentry kind="src" path="FinalProject"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="libs/gridworld.jar"/>
 	<classpathentry kind="src" path="blackjack"/>
+	<classpathentry kind="src" path="pictures_lab"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

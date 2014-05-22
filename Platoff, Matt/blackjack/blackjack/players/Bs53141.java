@@ -12,14 +12,14 @@ import blackjack.PlayerAction;
 import blackjack.Result;
 import blackjack.SomethingBadHappenedException;
 
-public class BasicPlayer implements BlackjackPlayer {
+public class Bs53141 implements BlackjackPlayer {
 
 	private char[][] hardTable = new char[10][10];
 	private char[][] softTable = new char[7][10];
 	private char[][] splitTable = new char[8][10];
 	private Scanner in;
 
-	public BasicPlayer() throws FileNotFoundException {
+	public Bs53141() throws FileNotFoundException {
 
 		in = new Scanner(new FileReader("blackjack_files\\basicStrat.txt"));
 		in.useDelimiter(",");
@@ -27,21 +27,21 @@ public class BasicPlayer implements BlackjackPlayer {
 		for (int x = 0; x < 10; x++) {
 			for (int y = 0; y < 10; y++) {
 				if (in.hasNext()) {
-					 temp = in.next();
+					temp = in.next();
 					hardTable[x][y] = temp.charAt(0);
 				}
 			}
 		}
-		
+
 		for (int x = 0; x < 7; x++) {
 			for (int y = 0; y < 10; y++) {
 				if (in.hasNext()) {
-					 temp = in.next();
+					temp = in.next();
 					softTable[x][y] = temp.charAt(0);
 				}
 			}
 		}
-		
+
 		for (int x = 0; x < 8; x++) {
 			for (int y = 0; y < 10; y++) {
 				if (in.hasNext()) {
@@ -70,32 +70,33 @@ public class BasicPlayer implements BlackjackPlayer {
 		int tc, ti = 0;
 		int temp = -1;
 		boolean splitable = false;
-		boolean splitAces;
+		boolean splitAces = false;
 
 		if (dealerUpCard.value().numericValue() != 1
 				&& dealerUpCard.value().numericValue() != 11)
 			tc = dealerUpCard.value().numericValue() - 2;
 		else
 			tc = 9;
-		for (Card c : ownHand){
+		for (Card c : ownHand) {
 			handVal += c.value().numericValue();
-		if (c.value().numericValue()==temp||Math.abs(temp-c.value().numericValue())==10){
-			splitable=true;
-			if (Math.abs(temp-c.value().numericValue())==10)
-		splitAces=true;
-		}
-			
-			temp=c.value().numericValue();
+			if (c.value().numericValue() == temp
+					|| Math.abs(temp - c.value().numericValue()) == 10) {
+				splitable = true;
+				if (Math.abs(temp - c.value().numericValue()) == 10)
+					splitAces = true;
+			}
+
+			temp = c.value().numericValue();
 		}
 		if (handVal >= 4 && handVal <= 8) {
-			if (handVal==4&&splitable)
+			if (handVal == 4 && splitable)
 				ti = 0;
-			if (handVal==6&&splitable)
-				ti=1;
-			if (handVal==8&&splitable)
-				ti=2;
+			if (handVal == 6 && splitable)
+				ti = 1;
+			if (handVal == 8 && splitable)
+				ti = 2;
 			else
-				ti=0;
+				ti = 0;
 		}
 
 		if (handVal == 9) {
@@ -104,31 +105,28 @@ public class BasicPlayer implements BlackjackPlayer {
 		}
 
 		if (handVal == 10) {
-			if (!splitable)
-				ti = 2;
-			else
-				ti=3;
 			
+				ti = 2;
+			
+
 		}
 		if (handVal == 11) {
 			if (!soft)
 				ti = 3;
 		}
 		if (handVal == 12) {
-			if (!splitable)
+			
 				ti = 4;
-			else
-				ti=4;
 		}
 		if (handVal == 13) {
 			if (!soft)
 				ti = 5;
-			else 
+			else
 				ti = 0;
 		}
 		if (handVal == 14) {
 			if (splitable)
-				ti=5;
+				ti = 4;
 			else if (!soft)
 				ti = 6;
 			else
@@ -141,7 +139,9 @@ public class BasicPlayer implements BlackjackPlayer {
 				ti = 2;
 		}
 		if (handVal == 16) {
-			if (!soft)
+			if (splitable)
+				ti = 5;
+			else if (!soft)
 				ti = 8;
 			else
 				ti = 3;
@@ -153,7 +153,9 @@ public class BasicPlayer implements BlackjackPlayer {
 				ti = 4;
 		}
 		if (handVal == 18) {
-			if (!soft)
+			if (splitable)
+				ti = 6;
+			else if (!soft)
 				ti = 9;
 			else
 				ti = 5;
@@ -165,6 +167,7 @@ public class BasicPlayer implements BlackjackPlayer {
 				ti = 6;
 		}
 		if (handVal == 20) {
+			
 			if (!soft)
 				ti = 9;
 			else
@@ -176,10 +179,15 @@ public class BasicPlayer implements BlackjackPlayer {
 			else
 				ti = 6;
 		}
-if (!soft)
-		decide = hardTable[ti][tc];
-if (soft)
-	decide=softTable[ti][tc];
+		if (splitAces)
+			ti = 7;
+		if (splitable){
+			splitable=false;
+			decide = splitTable[ti][tc];}
+		else 	if (!soft)
+			decide = hardTable[ti][tc];
+		else if (soft)
+			decide = softTable[ti][tc];
 		switch (decide) {
 
 		case 'h':
