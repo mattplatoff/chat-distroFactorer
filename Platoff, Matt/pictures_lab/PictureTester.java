@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.awt.image.WritableRaster;
 
 /**
  * This class contains class (static) methods
@@ -18,17 +20,25 @@ public class PictureTester
     
    
   }
+  public static void redCupRemove(){
+	  
+  }
   public static void testChromakey(){
 	 
 	  Picture bg=new Picture("beach.jpg");
 	  Picture original = new Picture("blue-mark.jpg");
-	  Pixel[] bgPixals=bg.getPixels();
-	  Pixel[] origPixals=original.getPixels();
+	  
 	 Color c=new Color(19,38,80);
-	  for (int k=0;k<origPixals.length;k++){
-		  if (Pixel.colorDistance(c, origPixals[k].getColor())<=15);
-	  origPixals[k]=bgPixals[k];}
-	  Picture fin=new Picture();
+	
+	 for (int h=0;h<original.getHeight();h++){
+		 for (int w=0;w<original.getWidth();w++){
+			 if (Pixel.colorDistance(c, original.getPixel(w, h).getColor())<40)
+			 original.setBasicPixel(w,h,bg.getBasicPixel(w, h) );
+		 }
+	 }
+	 
+	original.explore();
+	  
 	 
   }
   /** Method to test mirrorVertical */
@@ -72,7 +82,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    testChromakey();
+	  //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
