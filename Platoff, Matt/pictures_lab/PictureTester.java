@@ -54,17 +54,27 @@ p.show();
 
 	}
 
-	public static void redCupRemove() {
-      Picture orig=new Picture("rsc.jpg");
-      Picture rpic;
+	public static void  lightDarkFilter(String path) {
+      Picture orig=new Picture(path);
+      
       Pixel[] pArray= orig.getPixels();
       orig.explore();
-      Color c = new Color(124, 22, 17);
+     
       for (int p=0;p<pArray.length;p++){
-    	  if (Pixel.colorDistance(c, pArray[p].getColor())>40);
-    	  p.
+    	if(pArray[p].getRed()+pArray[p].getBlue()+pArray[p].getGreen()/3<125){
+    	 pArray[p].setBlue((pArray[p].getBlue())/2);
+    	 pArray[p].setRed((pArray[p].getRed())/2);
+    	 pArray[p].setGreen((pArray[p].getGreen())/2);}
+    	else{
+    		 pArray[p].setBlue((255+pArray[p].getBlue())/2);
+        	 pArray[p].setRed((255+pArray[p].getRed())/2);
+        	 pArray[p].setGreen((255+pArray[p].getGreen())/2);
+    		
+    		
+    		
+    	}
       }
-
+orig.explore();
 	}
 
 	public static void testChromakey() {
@@ -124,7 +134,7 @@ p.show();
 		// to run
 		// testChromakey();
 		//System.out.println(decode(encode("ayyyyyyyyyy lmaoooooo")));
-		redCupRemove();
+		lightDarkFilter("swan.jpg");
 		// testZeroBlue();
 		// testKeepOnlyBlue();
 		// testKeepOnlyRed();
