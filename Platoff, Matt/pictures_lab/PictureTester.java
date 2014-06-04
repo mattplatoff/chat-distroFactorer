@@ -132,9 +132,9 @@ orig.explore();
 		// uncomment a call here to run a test
 		// and comment out the ones you don't want
 		// to run
-		// testChromakey();
+		 //testChromakey();
 		//System.out.println(decode(encode("ayyyyyyyyyy lmaoooooo")));
-		lightDarkFilter("swan.jpg");
+		lightDarkFilter("beach.jpg");
 		// testZeroBlue();
 		// testKeepOnlyBlue();
 		// testKeepOnlyRed();
