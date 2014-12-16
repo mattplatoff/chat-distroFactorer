@@ -20,10 +20,15 @@ public class Server {
 	public static void main(String[] args) throws IOException {
 		ServerSocket server = new ServerSocket(PORT);
 		System.out.println("waiting for clients....");
+		try{
 		while (true) {
 			Socket s = server.accept();
 			cm.add(new ClientManager(s, toFactor));
 			System.out.println("client connected");
+		}}
+		finally{
+			for (ClientManager c:cm)
+				c.closeAll();
 		}
 
 	}

@@ -29,25 +29,32 @@ public class ClientManager {
 		os = s.getOutputStream();
 		in = new Scanner(is);
 		out = new PrintWriter(os);
+		System.out.println("client managet instantiated for client number "
+				+ cnum);
 	}
 
 	public void service() {
 		// sends the number to be factored and the client number
 		out.print(toFactor.toString() + "\n" + cnum);
+		System.out.println("number to factor is " + toFactor.toString() + "\n"
+				+ cnum);
 		out.flush();
 		// waits for one of the clients to return the factors and then closes
 		// the socket
 		while (true) {
 			if (in.hasNext()) {
 				System.out.println("the factors are " + in.nextLine());
-				try {
-					s.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+
 			}
 		}
 
+	}
+
+	public void closeAll() throws IOException {
+		s.close();
+		in.close();
+		out.close();
+		is.close();
+		os.close();
 	}
 }
